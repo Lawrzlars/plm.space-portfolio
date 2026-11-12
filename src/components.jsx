@@ -184,6 +184,31 @@ export function AboutSection() {
         <li>Backend development</li>
         <li>Problem-solving</li>
       </ul>
+      <div className="technical-skills">
+        <h3>Technical skills and tools</h3>
+        <ul className="technical-skill-list">
+          <li>
+            <strong>Programming languages and markup</strong>
+            <span>Python, JavaScript, C#, and HTML</span>
+          </li>
+          <li>
+            <strong>Development tools</strong>
+            <span>NetBeans, Eclipse, and Visual Studio Code</span>
+          </li>
+          <li>
+            <strong>Currently learning</strong>
+            <span>Node.js</span>
+          </li>
+          <li>
+            <strong>MySQL</strong>
+            <span>Used for relational data in the Rice Supplier project</span>
+          </li>
+          <li>
+            <strong>React, CSS, and Vite</strong>
+            <span>Technologies used to build this portfolio</span>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 }
@@ -198,6 +223,7 @@ const projects = [
     description: "A supply chain management system built with fellow classmates, featuring point of sale, inventory management, and order tracking.",
     contribution:
       "As Project Manager, I coordinated tasks and deadlines, tracked team work, gathered requirements, organized Google Meet meetings, and reviewed the system. I also contributed to coding and design. Our team used MySQL for relational data and Google Docs to combine shared work, scripts, and documentation.",
+    technologies: ["MySQL"],
     features: ["Point of sale", "Inventory management", "Order tracking"],
     resources: [
       { label: "Repository", href: "https://github.com/Lawrzlars/Rice-Supplier-Management-System-team-project/tree/main" },
@@ -240,7 +266,7 @@ export function ProjectsSection() {
       <h2>Projects<span>.</span><SpiderMark /></h2>
       <div className="projects-grid">
         {projects.map(
-          ({ type, number, art, title, description, contribution, features, resources, href }) => (
+          ({ type, number, art, title, description, contribution, technologies, features, resources, href }) => (
             <article className={`project-card ${type}`} key={number}>
               <p className="project-number">{number}</p>
               <div className="project-art">{art}</div>
@@ -254,6 +280,18 @@ export function ProjectsSection() {
                   <strong>My contribution</strong>
                   <span>{contribution}</span>
                 </p>
+              )}
+              {technologies && (
+                <ul
+                  className="project-technologies"
+                  aria-label={`${title} technologies used`}
+                >
+                  {technologies.map((technology) => (
+                    <li key={technology}>
+                      <strong>Technology:</strong> {technology}
+                    </li>
+                  ))}
+                </ul>
               )}
               {features && (
                 <ul className="project-features" aria-label={`${title} features`}>

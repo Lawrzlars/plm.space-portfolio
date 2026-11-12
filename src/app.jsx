@@ -18,6 +18,40 @@ function App() {
   const [isCelebrating, setIsCelebrating] = useState(false);
   const profileDialogRef = useRef(null);
 
+  useEffect(() => {
+    const portfolio = document.querySelector(".portfolio");
+    if (!portfolio || !("IntersectionObserver" in window)) return;
+
+    const revealTargets = document.querySelectorAll(
+      ".section, .contact, .project-card"
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" }
+    );
+
+    portfolio.classList.add("motion-ready");
+    revealTargets.forEach((target) => {
+      target.classList.add("reveal-on-scroll");
+      observer.observe(target);
+    });
+
+    return () => {
+      observer.disconnect();
+      portfolio.classList.remove("motion-ready");
+      revealTargets.forEach((target) => {
+        target.classList.remove("reveal-on-scroll", "is-visible");
+      });
+    };
+  }, []);
+
   // Keep the native dialog's open state in sync with React state.
   useEffect(() => {
     const dialog = profileDialogRef.current;
