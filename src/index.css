@@ -1,0 +1,4 @@
+/* Let the React app fill the height of the browser window. */
+#root {
+  min-height: 100vh;
+}
