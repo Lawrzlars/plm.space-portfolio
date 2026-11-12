@@ -8,6 +8,13 @@ My Portfolio, built with React and Vite.
 - Start the development server with `npm run dev`.
 - Verify a production build with `npm run build`.
 
+## Source structure
+
+- `src/main.jsx` mounts the React application.
+- `src/app.jsx` composes the page and manages shared UI state.
+- `src/components/` contains the page sections and shared visual components.
+- `src/styles/` contains the application and base stylesheets.
+
 ## Deploying to Vercel
 
 This is a Vite static site. To deploy it:
@@ -16,7 +23,7 @@ This is a Vite static site. To deploy it:
 2. In Vercel, import that repository and select the Vite framework preset.
 3. Use `npm run build` as the build command and `dist` as the output directory.
 4. Deploy, then open the generated HTTPS URL and verify the site, contact links, social links, project resources, and certificate PDFs.
-5. Add the final public URL and a social preview image to the page metadata when available.
+5. Confirm the production URL is `https://plm-space-portfolio.vercel.app/` and verify the canonical and social preview metadata against it.
 
 Do not commit credentials, private team files, or certificate material unless you have permission to publish them.
 
@@ -24,7 +31,8 @@ Do not commit credentials, private team files, or certificate material unless yo
 
 - Before publishing changes, run `npm run build`.
 - After content or code changes, check the navigation, project links, certificate PDFs, and contact links.
-- Review the layout at phone, tablet, and desktop sizes, and test keyboard navigation and visible focus states.
+- Review the layout at phone, tablet, and desktop sizes, and test keyboard navigation and visible focus states before each update.
 - Periodically confirm the published site and external profile links are reachable.
-- Review dependency updates periodically; apply updates deliberately and rerun the production build.
-- Once the Vercel public URL is available, add URL-dependent metadata such as the canonical URL and social preview image.
+- Review project details, certificates, and contact information monthly.
+- Review dependency updates each semester; apply updates deliberately and rerun the production build.
+- Keep the canonical URL and social preview metadata aligned with the Vercel production URL.

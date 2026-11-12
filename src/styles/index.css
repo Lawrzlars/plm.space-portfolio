@@ -1,0 +1,4 @@
+/* Base stylesheet: ensure the mounted React app fills the viewport height. */
+#root {
+  min-height: 100vh;
+}

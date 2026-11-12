@@ -1,15 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  AboutSection,
-  ContactSection,
-  DecorativeWebs,
-  Footer,
-  HomeSection,
-  Navbar,
-  ProfileDialog,
-  ProjectsSection,
-} from "./components.jsx";
-import "./app.css";
+import { AboutSection } from "./components/AboutSection.jsx";
+import { ContactSection } from "./components/ContactSection.jsx";
+import { DecorativeWebs } from "./components/DecorativeWebs.jsx";
+import { Footer } from "./components/Footer.jsx";
+import { HomeSection } from "./components/HomeSection.jsx";
+import { Navbar } from "./components/Navbar.jsx";
+import { ProfileDialog } from "./components/ProfileDialog.jsx";
+import { ProjectsSection } from "./components/ProjectsSection.jsx";
+import "./styles/app.css";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -18,6 +16,7 @@ function App() {
   const [isCelebrating, setIsCelebrating] = useState(false);
   const profileDialogRef = useRef(null);
 
+  // Reveal content as it enters view; without observer support, leave it visible.
   useEffect(() => {
     const portfolio = document.querySelector(".portfolio");
     if (!portfolio || !("IntersectionObserver" in window)) return;
