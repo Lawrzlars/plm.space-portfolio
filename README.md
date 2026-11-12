@@ -1,6 +1,6 @@
 # PLM.SPACE Portfolio
 
-My Personal, built with React and Vite.
+My Portfolio, built with React and Vite.
 
 ## Local development
 
